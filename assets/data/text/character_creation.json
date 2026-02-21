@@ -1,0 +1,122 @@
+{
+  "intro": {
+    "text": "You awaken in darkness. You remember the fall, the dried ground giving way beneath your heels, opening its maw and taking you in. You were documenting the new excavation site when the floor collapsed, or something like that.\n\nIt's honestly hard to remember.\nCragged stone digs against your back. The air smells of dust and something older — copper, perhaps, or blood long dried. Everything you came with is gone.",
+    "prompt": "Rise."
+  },
+  "questions": [
+    {
+      "text": "You kneel in the dust. A shard of glass catches the dim light. You pick it up and peer into its cracked surface.\n\nWhat do you notice first?",
+      "choices": [
+        {
+          "text": "The weight of it in your palm, surprisingly heavy",
+          "effects": {"sinew": 3, "fortitudo": 1}
+        },
+        {
+          "text": "How the light fractures and dances across its edges",
+          "effects": {"alacrity": 3, "virtus": 1}
+        },
+        {
+          "text": "Your own eye, staring back at you, unblinking",
+          "effects": {"virtus": 3, "sinew": 1}
+        },
+        {
+          "text": "The darkness pooling in the deeper cracks",
+          "effects": {"fortitudo": 3, "alacrity": 1}
+        }
+      ]
+    },
+    {
+      "text": "You tilt the glass. Your reflection shifts.\n\nWhat troubles you about your own face?",
+      "choices": [
+        {
+          "text": "It looks gaunt, hollowed by something you cannot name",
+          "effects": {"fortitudo": 2, "virtus": 2}
+        },
+        {
+          "text": "The eyes seem too quick, darting to things not there",
+          "effects": {"alacrity": 3, "sinew": 1}
+        },
+        {
+          "text": "There is a hardness in the jaw you do not remember",
+          "effects": {"sinew": 2, "fortitudo": 2}
+        },
+        {
+          "text": "It smiles when you do not",
+          "effects": {"virtus": 4}
+        }
+      ]
+    },
+    {
+      "text": "Behind your reflection, in the deeper glass, something moves.\n\nWhat do you believe it to be?",
+      "choices": [
+        {
+          "text": "A trick of the light, nothing more",
+          "effects": {"fortitudo": 2, "alacrity": 1}
+        },
+        {
+          "text": "The shadow of what you might become",
+          "effects": {"virtus": 2, "sinew": 2}
+        },
+        {
+          "text": "Something that has always been watching",
+          "effects": {"alacrity": 2, "virtus": 2}
+        },
+        {
+          "text": "Your hands tighten. It does not matter what it is.",
+          "effects": {"sinew": 3, "fortitudo": 1}
+        }
+      ]
+    },
+    {
+      "text": "The cracks in the glass form a pattern.\n\nWhat shape do they suggest to you?",
+      "choices": [
+        {
+          "text": "A web, radiating outward from a single point of impact",
+          "effects": {"alacrity": 2, "virtus": 1},
+          "weapon": "bronze_dagger"
+        },
+        {
+          "text": "A river delta, branching and rebranching endlessly",
+          "effects": {"sinew": 1, "alacrity": 2},
+          "weapon": "bronze_sword"
+        },
+        {
+          "text": "Lightning frozen in glass, violence made still",
+          "effects": {"sinew": 2, "virtus": 1},
+          "weapon": "slag_iron_spear"
+        },
+        {
+          "text": "The roots of a great tree, clutching at stone",
+          "effects": {"fortitudo": 2, "sinew": 1},
+          "weapon": "bell_metal_axe"
+        }
+      ]
+    },
+    {
+      "text": "You set down the glass. But before you do—\n\nWhat do you whisper to your reflection?",
+      "choices": [
+        {
+          "text": "\"I will endure.\"",
+          "effects": {"fortitudo": 3}
+        },
+        {
+          "text": "\"I will be swift.\"",
+          "effects": {"alacrity": 3}
+        },
+        {
+          "text": "\"I will not falter.\"",
+          "effects": {"virtus": 3}
+        },
+        {
+          "text": "\"I will break what breaks me.\"",
+          "effects": {"sinew": 3}
+        }
+      ]
+    }
+  ],
+  "results": {
+    "pre_stats": "The glass falls from your fingers and shatters into a thousand smaller pieces. You rise. Somehow, you know yourself better now.",
+    "post_stats": "Beside you lies a weapon. You do not question why it is there.",
+    "prompt_template": "Take up the {weapon} and descend."
+  }
+}

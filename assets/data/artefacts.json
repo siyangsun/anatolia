@@ -1,0 +1,12 @@
+{
+  "ancient_amulet": {
+    "name": "Ancient Amulet",
+    "effect": "health_regen",
+    "power": 2
+  },
+  "ring_of_strength": {
+    "name": "Ring of Strength",
+    "effect": "damage_boost",
+    "power": 5
+  }
+}

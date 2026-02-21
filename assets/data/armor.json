@@ -1,0 +1,12 @@
+{
+  "leather_vest": {
+    "name": "Leather Vest",
+    "defense": 5,
+    "slot": "chest"
+  },
+  "iron_helmet": {
+    "name": "Iron Helmet",
+    "defense": 3,
+    "slot": "head"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "dogs_fang": {
+    "name": "Dog's Fang",
+    "class": "dagger",
+    "alloy": "enamel",
+    "reach": 1
+  },
+  "bronze_dagger": {
+    "name": "Bronze Dagger",
+    "class": "dagger",
+    "alloy": "bronze",
+    "reach": 1
+  },
+  "bog_iron_dagger": {
+    "name": "Bog Iron Dagger",
+    "class": "dagger",
+    "alloy": "bog_iron",
+    "reach": 1
+  },
+  "bronze_sword": {
+    "name": "Bronze Sword",
+    "class": "sword",
+    "alloy": "bronze",
+    "reach": 3
+  },
+  "wootz_steel_blade": {
+    "name": "Wootz-Steel Blade",
+    "class": "sword",
+    "alloy": "wootz_steel",
+    "reach": 2
+  },
+  "slag_iron_spear": {
+    "name": "Slag Iron Spear",
+    "class": "spear",
+    "alloy": "slag_iron",
+    "reach": 5
+  },
+  "grey_iron_spear": {
+    "name": "Grey Iron Spear",
+    "class": "spear",
+    "alloy": "grey_iron",
+    "reach": 6
+  },
+  "bell_metal_axe": {
+    "name": "Bell Metal Axe",
+    "class": "axe",
+    "alloy": "bell_metal",
+    "reach": 2
+  },
+  "cementite_axe": {
+    "name": "Cementite Axe",
+    "class": "axe",
+    "alloy": "cementite",
+    "reach": 2
+  },
+  "bronze_staff": {
+    "name": "Bronze Staff",
+    "class": "staff",
+    "alloy": "bronze",
+    "reach": 4
+  },
+  "grey_iron_staff": {
+    "name": "Grey Iron Staff",
+    "class": "staff",
+    "alloy": "grey_iron",
+    "reach": 5
+  }
+}

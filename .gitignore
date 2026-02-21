@@ -1,0 +1,34 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot export builds
+/android/
+/build/
+/export/
+*.apk
+*.aab
+*.exe
+*.x86_64
+*.pck
+*.zip
+
+# Editor backups and crashes
+*.import.bak
+*.tmp
+*.log
+crash*.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Obsidian (in assets)
+.obsidian/

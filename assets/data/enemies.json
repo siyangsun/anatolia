@@ -1,0 +1,42 @@
+{
+  "wild_dog": {
+    "name": "Wild Dog",
+    "stats": {
+      "sinew": 8,
+      "alacrity": 14,
+      "virtus": 6,
+      "fortitudo": 6
+    },
+    "weapon": "dogs_fang"
+  },
+  "bandit": {
+    "name": "Bandit",
+    "stats": {
+      "sinew": 12,
+      "alacrity": 10,
+      "virtus": 8,
+      "fortitudo": 10
+    },
+    "weapon": "bronze_sword"
+  },
+  "temple_guard": {
+    "name": "Temple Guard",
+    "stats": {
+      "sinew": 14,
+      "alacrity": 8,
+      "virtus": 12,
+      "fortitudo": 15
+    },
+    "weapon": "grey_iron_spear"
+  },
+  "ancient_sentinel": {
+    "name": "Ancient Sentinel",
+    "stats": {
+      "sinew": 18,
+      "alacrity": 6,
+      "virtus": 20,
+      "fortitudo": 20
+    },
+    "weapon": "cementite_axe"
+  }
+}

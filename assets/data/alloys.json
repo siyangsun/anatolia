@@ -1,0 +1,42 @@
+{
+  "bell_metal": {
+    "name": "Bell Metal",
+    "density": 8.0,
+    "hardness": 3.0
+  },
+  "bronze": {
+    "name": "Bronze",
+    "density": 7.0,
+    "hardness": 5.0
+  },
+  "slag_iron": {
+    "name": "Slag Iron",
+    "density": 9.0,
+    "hardness": 4.0
+  },
+  "bog_iron": {
+    "name": "Bog Iron (Phosphoric)",
+    "density": 8.0,
+    "hardness": 6.0
+  },
+  "grey_iron": {
+    "name": "Grey Iron",
+    "density": 10.0,
+    "hardness": 7.0
+  },
+  "cementite": {
+    "name": "Cementite",
+    "density": 11.0,
+    "hardness": 9.0
+  },
+  "wootz_steel": {
+    "name": "Wootz-Steel",
+    "density": 9.0,
+    "hardness": 10.0
+  },
+  "enamel": {
+    "name": "Enamel",
+    "density": 4.0,
+    "hardness": 6.0
+  }
+}

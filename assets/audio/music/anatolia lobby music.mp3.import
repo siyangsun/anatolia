@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c86vs84eefa0t"
+path="res://.godot/imported/anatolia lobby music.mp3-36a4ac29a0d98390be1baed295d8bc31.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/anatolia lobby music.mp3"
+dest_files=["res://.godot/imported/anatolia lobby music.mp3-36a4ac29a0d98390be1baed295d8bc31.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

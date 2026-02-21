@@ -1,0 +1,19 @@
+{
+  "header": "THE GAUNTLET",
+  "intro": "You descend into the depths of Gobekli Tepe. The Ancient Megalith pulses with eldritch light.",
+  "player_header": "YOUR CHARACTER",
+  "encounter_header_template": "ENCOUNTER {current}/{total}: {enemy_name}",
+  "combat": {
+    "victory": "The Megalith shimmers... your wounds begin to close.",
+    "defeat": "The darkness consumes you."
+  },
+  "final_victory": {
+    "header": "VICTORY",
+    "text": "You have conquered the gauntlet! The Ancient Megalith bestows its blessing upon you. ...for now."
+  },
+  "buttons": {
+    "next_enemy": "Next Enemy",
+    "game_over": "Game Over",
+    "complete": "Complete"
+  }
+}
