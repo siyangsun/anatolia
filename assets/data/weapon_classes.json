@@ -7,10 +7,13 @@
     "hardness_durity_ratio": 1.2,
     "attack_types": [
       { "id": 1, "name": "stab", "damage_type": "penetrating", "severity_mult": 1.2, "heft_mult": 0.3 },
-      { "id": 2, "name": "slash", "damage_type": "slicing", "severity_mult": 0.8, "counterbalance_mult": 1.0 }
+      { "id": 2, "name": "slash", "damage_type": "slicing", "severity_mult": 0.8, "counterbalance_mult": 1.0 },
+      { "id": 3, "name": "backstab", "damage_type": "penetrating", "severity_mult": 1.7, "heft_mult": 0.8 }
     ],
     "movesets": [
-      { "name": "Dart", "pattern": [0, 1, 0, 1, 0, 0] },
+      { "name": "Stab", "pattern": [0, 1, 0] },
+      { "name": "Attempt Backstab", "pattern": [0, 0, 3, 0, 0] },
+      { "name": "Dart", "pattern": [0, 1, 0, 0, 1, 2, 0] },
       { "name": "Flurry", "pattern": [0, 0, 1, 1, 0, 1] }
     ]
   },
@@ -25,8 +28,9 @@
       { "id": 2, "name": "thrust", "damage_type": "penetrating", "severity_mult": 1.0, "heft_mult": 0.5 }
     ],
     "movesets": [
-      { "name": "Slash Combo", "pattern": [0, 0, 0, 0, 1, 0, 1, 0, 0] },
-      { "name": "Cross Strike", "pattern": [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0] }
+      { "name": "Thrust", "pattern": [0, 0, 2, 0] },
+      { "name": "Slash Combo", "pattern": [0, 0, 1, 0, 1, 0, 0] },
+      { "name": "Cross Strike", "pattern": [0, 0, 0, 2, 0, 0, 1, 0, 1, 0] }
     ]
   },
   "spear": {
@@ -40,8 +44,9 @@
       { "id": 2, "name": "sweep", "damage_type": "kinetic", "heft_mult": 0.8, "counterbalance_mult": 0.7 }
     ],
     "movesets": [
-      { "name": "Sweep and Thrust", "pattern": [0, 0, 0, 0, 2, 0, 0, 1, 0] },
-      { "name": "Double Thrust", "pattern": [0, 0, 1, 0, 0, 0, 1, 0] }
+      { "name": "Thrust", "pattern": [0, 0, 1, 0, 0] },
+      { "name": "Sweep and Thrust", "pattern": [0, 0, 0, 2, 0, 0, 1, 0] },
+      { "name": "Double Thrust", "pattern": [0, 0, 1, 0, 0, 0, 1, 0, 0] }
     ]
   },
   "axe": {
@@ -55,8 +60,8 @@
       { "id": 2, "name": "smash", "damage_type": "concussive", "heft_mult": 1.4, "counterbalance_mult": 0.8 }
     ],
     "movesets": [
-      { "name": "Power Chop", "pattern": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0] },
-      { "name": "Chop and Smash", "pattern": [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1] }
+      { "name": "Power Chop", "pattern": [0, 0, 0, 1, 0, 0, 0] },
+      { "name": "Chop and Smash", "pattern": [0, 0, 0, 0, 1, 0, 2, 0, 0] }
     ]
   },
   "staff": {
