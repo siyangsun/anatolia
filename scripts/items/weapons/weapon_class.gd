@@ -8,7 +8,7 @@ var weight_counterbalance_ratio: float
 var hardness_severity_ratio: float
 var hardness_durity_ratio: float
 var attack_types: Array[AttackType]
-var movesets: Array
+var movesets: Array[Moveset]
 
 
 func _init(class_id: String, data: Dictionary):
@@ -19,11 +19,23 @@ func _init(class_id: String, data: Dictionary):
 	weight_counterbalance_ratio = float(data["weight_counterbalance_ratio"])
 	hardness_severity_ratio = float(data["hardness_severity_ratio"])
 	hardness_durity_ratio = float(data["hardness_durity_ratio"])
-	movesets = data["movesets"]
 
 	attack_types = []
 	for atk in data["attack_types"]:
 		attack_types.append(AttackType.new(atk))
+
+	movesets = []
+	for ms in data["movesets"]:
+		movesets.append(Moveset.new(ms))
+
+
+class Moveset:
+	var name: String
+	var pattern: Array
+
+	func _init(data: Dictionary):
+		name = data["name"]
+		pattern = data["pattern"]
 
 
 class AttackType:

@@ -58,8 +58,8 @@ static func calculate_combo(weapon: Weapon, moveset_index: int = 0, combatant: C
 	var total_damage = 0.0
 	var hits: Array = []
 
-	for tick in range(moveset.size()):
-		var attack_idx = int(moveset[tick])
+	for tick in range(moveset.pattern.size()):
+		var attack_idx = int(moveset.pattern[tick])
 		if attack_idx == 0:
 			hits.append({"tick": tick, "damage": 0.0, "attack": null})
 		else:
@@ -82,13 +82,15 @@ static func calculate_combo(weapon: Weapon, moveset_index: int = 0, combatant: C
 
 # Returns combat setup for tick-by-tick simulation
 static func create_combat(attacker: Combatant, defender: Combatant) -> Dictionary:
+	var attacker_movesets = attacker.weapon.get_movesets()
+	var defender_movesets = defender.weapon.get_movesets()
 	return {
 		"attacker": attacker,
 		"defender": defender,
 		"attacker_combo_tick": 0,
 		"defender_combo_tick": 0,
-		"attacker_moveset": attacker.weapon.get_movesets()[0],
-		"defender_moveset": defender.weapon.get_movesets()[0],
+		"attacker_moveset": attacker_movesets[randi() % attacker_movesets.size()],
+		"defender_moveset": defender_movesets[randi() % defender_movesets.size()],
 		"attacker_stats": attacker.weapon.get_stats(),
 		"defender_stats": defender.weapon.get_stats(),
 		"attacker_attacks": attacker.weapon.get_attack_types(),
@@ -117,8 +119,8 @@ static func process_tick(combat: Dictionary) -> Array:
 
 	# Process attacker
 	if combat["attacker_combo_tick"] >= 0:
-		var combo_pos = combat["attacker_combo_tick"] % combat["attacker_moveset"].size()
-		var attack_idx = int(combat["attacker_moveset"][combo_pos])
+		var combo_pos = combat["attacker_combo_tick"] % combat["attacker_moveset"].pattern.size()
+		var attack_idx = int(combat["attacker_moveset"].pattern[combo_pos])
 		if attack_idx > 0:
 			var attack = _find_attack(combat["attacker_attacks"], attack_idx)
 			var raw_dmg = calculate_attack_damage(combat["attacker_stats"], attack, attacker)
@@ -148,8 +150,8 @@ static func process_tick(combat: Dictionary) -> Array:
 
 	# Process defender
 	if combat["defender_combo_tick"] >= 0:
-		var combo_pos = combat["defender_combo_tick"] % combat["defender_moveset"].size()
-		var attack_idx = int(combat["defender_moveset"][combo_pos])
+		var combo_pos = combat["defender_combo_tick"] % combat["defender_moveset"].pattern.size()
+		var attack_idx = int(combat["defender_moveset"].pattern[combo_pos])
 		if attack_idx > 0:
 			var attack = _find_attack(combat["defender_attacks"], attack_idx)
 			var raw_dmg = calculate_attack_damage(combat["defender_stats"], attack, defender)
