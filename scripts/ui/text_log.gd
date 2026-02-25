@@ -14,12 +14,14 @@ var _output_label: RichTextLabel = null
 func _init(output_label: RichTextLabel = null):
 	_output_label = output_label
 	if _output_label:
+		_output_label.bbcode_enabled = true
 		_output_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 
 func set_output(output_label: RichTextLabel):
 	_output_label = output_label
 	if _output_label:
+		_output_label.bbcode_enabled = true
 		_output_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 

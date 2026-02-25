@@ -80,16 +80,16 @@ static func calculate_combo(weapon: Weapon, moveset_index: int = 0, combatant: C
 	}
 
 
-# Returns combat setup for tick-by-tick simulation
+# Returns combat setup for tick-by-tick simulation.
+# attacker_moveset is intentionally absent — the caller sets it each round.
 static func create_combat(attacker: Combatant, defender: Combatant) -> Dictionary:
-	var attacker_movesets = attacker.weapon.get_movesets()
 	var defender_movesets = defender.weapon.get_movesets()
 	return {
 		"attacker": attacker,
 		"defender": defender,
 		"attacker_combo_tick": 0,
 		"defender_combo_tick": 0,
-		"attacker_moveset": attacker_movesets[randi() % attacker_movesets.size()],
+		"attacker_moveset": null,
 		"defender_moveset": defender_movesets[randi() % defender_movesets.size()],
 		"attacker_stats": attacker.weapon.get_stats(),
 		"defender_stats": defender.weapon.get_stats(),
@@ -118,7 +118,7 @@ static func process_tick(combat: Dictionary) -> Array:
 		return events
 
 	# Process attacker
-	if combat["attacker_combo_tick"] >= 0:
+	if combat["attacker_moveset"] != null and combat["attacker_combo_tick"] >= 0:
 		var combo_pos = combat["attacker_combo_tick"] % combat["attacker_moveset"].pattern.size()
 		var attack_idx = int(combat["attacker_moveset"].pattern[combo_pos])
 		if attack_idx > 0:

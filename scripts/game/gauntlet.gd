@@ -6,6 +6,8 @@ const TICK_DELAY = 0.1
 @onready var output_label: RichTextLabel = $VBoxContainer/RichTextLabel
 @onready var next_button: Button = $VBoxContainer/NextButton
 
+signal _moveset_chosen(moveset)
+
 var player_stats: CharacterStats
 var player_weapon_id: String
 
@@ -95,31 +97,36 @@ func start_fight():
 
 func run_combat(attacker: Combatant, defender: Combatant):
 	var combat = CombatCalc.create_combat(attacker, defender)
-	var max_ticks = 100
 
-	while not combat["finished"] and combat["tick"] < max_ticks:
-		var events = CombatCalc.process_tick(combat)
+	while not combat["finished"]:
+		var chosen = await _choose_moveset(attacker.weapon.get_movesets())
+		combat["attacker_moveset"] = chosen
+		combat["attacker_combo_tick"] = 0
 
-		for event in events:
-			if event["type"] == "attack":
-				var hit_desc = DamageText.describe_hit(
-					event["attacker"],
-					event["attack"].name,
-					event["attack"].damage_type,
-					event["damage"],
-					event["defender"],
-					event["target_max_sanguis"],
-					event["target_sanguis"]
-				)
-				log.log_line(hit_desc["ui"], TextLog.Channel.UI)
-				log.log_line(hit_desc["debug"], TextLog.Channel.DEBUG)
-				stats_hud.refresh()
-
-			elif event["type"] == "death":
-				log.log_line(DamageText.describe_death(event["name"], event["damage_type"]))
-
-		if events.size() > 0:
-			await get_tree().create_timer(TICK_DELAY).timeout
+		for _i in range(chosen.pattern.size()):
+			if combat["finished"]:
+				break
+			var events = CombatCalc.process_tick(combat)
+			var had_event = false
+			for event in events:
+				if event["type"] == "attack":
+					var hit_desc = DamageText.describe_hit(
+						event["attacker"],
+						event["attack"].name,
+						event["attack"].damage_type,
+						event["damage"],
+						event["defender"],
+						event["target_max_sanguis"],
+						event["target_sanguis"]
+					)
+					log.log_line(hit_desc["ui"], TextLog.Channel.UI)
+					log.log_line(hit_desc["debug"], TextLog.Channel.DEBUG)
+					stats_hud.refresh()
+					had_event = true
+				elif event["type"] == "death":
+					log.log_line(DamageText.describe_death(event["name"], event["damage_type"]))
+			if had_event:
+				await get_tree().create_timer(TICK_DELAY).timeout
 
 	log.log_line("")
 
@@ -138,6 +145,27 @@ func run_combat(attacker: Combatant, defender: Combatant):
 		log.log_line(combat_text["defeat"])
 		next_button.text = buttons["game_over"]
 		next_button.disabled = true
+
+
+func _choose_moveset(movesets: Array) -> WeaponClass.Moveset:
+	log.log_line("[color=yellow]Choose your attack:[/color]")
+
+	var buttons: Array = []
+	for ms in movesets:
+		var btn = Button.new()
+		btn.text = ms.name
+		$VBoxContainer.add_child(btn)
+		$VBoxContainer.move_child(btn, next_button.get_index())
+		btn.pressed.connect(func(): _moveset_chosen.emit(ms))
+		buttons.append(btn)
+
+	var chosen = await _moveset_chosen
+
+	for btn in buttons:
+		btn.queue_free()
+
+	log.log_line("[color=gray]→ %s[/color]\n" % chosen.name)
+	return chosen
 
 
 func show_victory():
