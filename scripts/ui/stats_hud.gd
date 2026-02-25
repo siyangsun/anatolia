@@ -41,10 +41,11 @@ func refresh():
 
 	var w = combatant.weapon
 	var ws = w.get_stats()
+	var weight = w.alloy.density * w.reach
 	equip_panel.set_content("""[b]%s[/b]
 [color=gray]%s %s[/color]
 
-Heft       %.1f kg
+Weight     %.1f kg
 Severity   %.1f
 Durity     %.1f
 Balance    %.1f
@@ -52,6 +53,6 @@ Balance    %.1f
 Reach      %d paces""" % [
 		w.name,
 		w.alloy.name, w.weapon_class.name,
-		ws["heft"], ws["severity"], ws["durity"], ws["counterbalance"],
+		weight, ws["severity"], ws["durity"], ws["counterbalance"],
 		w.reach,
 	])
