@@ -9,7 +9,6 @@ var hardness_severity_ratio: float
 var hardness_durity_ratio: float
 var attack_types: Array[AttackType]
 var movesets: Array
-var windup_delay: int
 
 
 func _init(class_id: String, data: Dictionary):
@@ -21,7 +20,6 @@ func _init(class_id: String, data: Dictionary):
 	hardness_severity_ratio = float(data["hardness_severity_ratio"])
 	hardness_durity_ratio = float(data["hardness_durity_ratio"])
 	movesets = data["movesets"]
-	windup_delay = int(data["windup_delay"])
 
 	attack_types = []
 	for atk in data["attack_types"]:
@@ -29,6 +27,7 @@ func _init(class_id: String, data: Dictionary):
 
 
 class AttackType:
+	var id: int
 	var name: String
 	var damage_type: ItemEnums.DamageType
 	var severity_mult: float
@@ -37,6 +36,7 @@ class AttackType:
 	var durity_mult: float
 
 	func _init(data: Dictionary):
+		id = int(data["id"])
 		name = data["name"]
 		damage_type = ItemEnums.damage_type_from_string(data["damage_type"])
 		severity_mult = float(data.get("severity_mult", 0.0))

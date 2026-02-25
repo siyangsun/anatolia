@@ -43,6 +43,13 @@ static func calculate_attack_damage(weapon_stats: Dictionary, attack_type: Weapo
 	return snapped(damage, 0.01)
 
 
+static func _find_attack(attacks: Array, id: int) -> WeaponClass.AttackType:
+	for a in attacks:
+		if a.id == id:
+			return a
+	return null
+
+
 static func calculate_combo(weapon: Weapon, moveset_index: int = 0, combatant: Combatant = null) -> Dictionary:
 	var stats = weapon.get_stats()
 	var moveset = weapon.get_movesets()[moveset_index]
@@ -56,7 +63,7 @@ static func calculate_combo(weapon: Weapon, moveset_index: int = 0, combatant: C
 		if attack_idx == 0:
 			hits.append({"tick": tick, "damage": 0.0, "attack": null})
 		else:
-			var attack = attack_types[attack_idx - 1]
+			var attack = _find_attack(attack_types, attack_idx)
 			var dmg = calculate_attack_damage(stats, attack, combatant)
 			total_damage += dmg
 			hits.append({
@@ -68,7 +75,6 @@ static func calculate_combo(weapon: Weapon, moveset_index: int = 0, combatant: C
 	return {
 		"weapon_stats": stats,
 		"moveset": moveset,
-		"windup_delay": weapon.get_windup_delay(),
 		"hits": hits,
 		"total_damage": total_damage,
 	}
@@ -79,8 +85,8 @@ static func create_combat(attacker: Combatant, defender: Combatant) -> Dictionar
 	return {
 		"attacker": attacker,
 		"defender": defender,
-		"attacker_combo_tick": -attacker.weapon.get_windup_delay(),
-		"defender_combo_tick": -defender.weapon.get_windup_delay(),
+		"attacker_combo_tick": 0,
+		"defender_combo_tick": 0,
 		"attacker_moveset": attacker.weapon.get_movesets()[0],
 		"defender_moveset": defender.weapon.get_movesets()[0],
 		"attacker_stats": attacker.weapon.get_stats(),
@@ -114,7 +120,7 @@ static func process_tick(combat: Dictionary) -> Array:
 		var combo_pos = combat["attacker_combo_tick"] % combat["attacker_moveset"].size()
 		var attack_idx = int(combat["attacker_moveset"][combo_pos])
 		if attack_idx > 0:
-			var attack = combat["attacker_attacks"][attack_idx - 1]
+			var attack = _find_attack(combat["attacker_attacks"], attack_idx)
 			var raw_dmg = calculate_attack_damage(combat["attacker_stats"], attack, attacker)
 			var actual_dmg = defender.take_damage(raw_dmg)
 			combat["last_damage_type"] = attack.damage_type
@@ -145,7 +151,7 @@ static func process_tick(combat: Dictionary) -> Array:
 		var combo_pos = combat["defender_combo_tick"] % combat["defender_moveset"].size()
 		var attack_idx = int(combat["defender_moveset"][combo_pos])
 		if attack_idx > 0:
-			var attack = combat["defender_attacks"][attack_idx - 1]
+			var attack = _find_attack(combat["defender_attacks"], attack_idx)
 			var raw_dmg = calculate_attack_damage(combat["defender_stats"], attack, defender)
 			var actual_dmg = attacker.take_damage(raw_dmg)
 			combat["last_damage_type"] = attack.damage_type

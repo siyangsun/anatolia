@@ -30,5 +30,3 @@ func get_attack_types() -> Array[WeaponClass.AttackType]:
 	return weapon_class.attack_types
 
 
-func get_windup_delay() -> int:
-	return weapon_class.windup_delay

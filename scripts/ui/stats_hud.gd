@@ -49,11 +49,9 @@ Severity   %.1f
 Durity     %.1f
 Balance    %.1f
 
-Reach      %d paces
-Windup     %d ticks""" % [
+Reach      %d paces""" % [
 		w.name,
 		w.alloy.name, w.weapon_class.name,
 		ws["heft"], ws["severity"], ws["durity"], ws["counterbalance"],
 		w.reach,
-		w.get_windup_delay()
 	])

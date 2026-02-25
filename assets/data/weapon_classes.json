@@ -6,14 +6,13 @@
     "hardness_severity_ratio": 1.2,
     "hardness_durity_ratio": 0.8,
     "attack_types": [
-      { "name": "stab", "damage_type": "penetrating", "severity_mult": 1.2, "heft_mult": 0.3 },
-      { "name": "slash", "damage_type": "slicing", "severity_mult": 0.8, "counterbalance_mult": 1.0 }
+      { "id": 1, "name": "stab", "damage_type": "penetrating", "severity_mult": 1.2, "heft_mult": 0.3 },
+      { "id": 2, "name": "slash", "damage_type": "slicing", "severity_mult": 0.8, "counterbalance_mult": 1.0 }
     ],
     "movesets": [
-      [1, 0, 1, 0, 0],
-      [0, 1, 1, 0, 1]
-    ],
-    "windup_delay": 2
+      [0, 1, 0, 1, 0, 0],
+      [0, 0, 1, 1, 0, 1]
+    ]
   },
   "sword": {
     "name": "Sword",
@@ -22,14 +21,13 @@
     "hardness_severity_ratio": 1.0,
     "hardness_durity_ratio": 1.0,
     "attack_types": [
-      { "name": "slash", "damage_type": "slicing", "severity_mult": 1.0, "counterbalance_mult": 1.0 },
-      { "name": "thrust", "damage_type": "penetrating", "severity_mult": 1.0, "heft_mult": 0.5 }
+      { "id": 1, "name": "slash", "damage_type": "slicing", "severity_mult": 1.0, "counterbalance_mult": 1.0 },
+      { "id": 2, "name": "thrust", "damage_type": "penetrating", "severity_mult": 1.0, "heft_mult": 0.5 }
     ],
     "movesets": [
-      [0, 0, 1, 0, 1, 0, 0],
-      [1, 0, 0, 1, 0, 1, 0]
-    ],
-    "windup_delay": 4
+      [0, 0, 0, 0, 1, 0, 1, 0, 0],
+      [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0]
+    ]
   },
   "spear": {
     "name": "Spear",
@@ -38,14 +36,13 @@
     "hardness_severity_ratio": 1.3,
     "hardness_durity_ratio": 0.7,
     "attack_types": [
-      { "name": "thrust", "damage_type": "penetrating", "severity_mult": 1.3, "heft_mult": 0.6 },
-      { "name": "sweep", "damage_type": "kinetic", "heft_mult": 0.8, "counterbalance_mult": 0.7 }
+      { "id": 1, "name": "thrust", "damage_type": "penetrating", "severity_mult": 1.3, "heft_mult": 0.6 },
+      { "id": 2, "name": "sweep", "damage_type": "kinetic", "heft_mult": 0.8, "counterbalance_mult": 0.7 }
     ],
     "movesets": [
-      [0, 0, 0, 1, 0, 0, 1, 0],
+      [0, 0, 0, 0, 2, 0, 0, 1, 0],
       [0, 0, 1, 0, 0, 0, 1, 0]
-    ],
-    "windup_delay": 5
+    ]
   },
   "axe": {
     "name": "Axe",
@@ -54,14 +51,13 @@
     "hardness_severity_ratio": 0.9,
     "hardness_durity_ratio": 0.6,
     "attack_types": [
-      { "name": "chop", "damage_type": "slicing", "severity_mult": 0.9, "heft_mult": 1.2 },
-      { "name": "smash", "damage_type": "concussive", "heft_mult": 1.4, "counterbalance_mult": 0.8 }
+      { "id": 1, "name": "chop", "damage_type": "slicing", "severity_mult": 0.9, "heft_mult": 1.2 },
+      { "id": 2, "name": "smash", "damage_type": "concussive", "heft_mult": 1.4, "counterbalance_mult": 0.8 }
     ],
     "movesets": [
-      [0, 0, 0, 1, 0, 0, 0],
-      [0, 0, 1, 0, 0, 0, 1]
-    ],
-    "windup_delay": 6
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1]
+    ]
   },
   "staff": {
     "name": "Staff",
@@ -70,13 +66,12 @@
     "hardness_severity_ratio": 0.4,
     "hardness_durity_ratio": 1.1,
     "attack_types": [
-      { "name": "light_strike", "damage_type": "kinetic", "heft_mult": 0.6, "counterbalance_mult": 1.2 },
-      { "name": "heavy_strike", "damage_type": "concussive", "heft_mult": 1.3, "counterbalance_mult": 1.0 }
+      { "id": 1, "name": "light_strike", "damage_type": "kinetic", "heft_mult": 0.6, "counterbalance_mult": 1.2 },
+      { "id": 2, "name": "heavy_strike", "damage_type": "concussive", "heft_mult": 1.3, "counterbalance_mult": 1.0 }
     ],
     "movesets": [
-      [0, 1, 0, 1, 0, 0],
-      [0, 0, 1, 0, 0, 2, 0]
-    ],
-    "windup_delay": 3
+      [0, 0, 0, 0, 1, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0, 1, 0, 0, 2, 0]
+    ]
   }
 }
